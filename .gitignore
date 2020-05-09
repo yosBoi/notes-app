@@ -1,0 +1,7 @@
+#contains environment variables (using dotenv npm package)
+.env
+
+node_modules
+
+#contains vscode extensions settings
+.vscode

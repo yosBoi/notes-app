@@ -1,0 +1,42 @@
+const express = require('express');
+const router = express.Router();
+const bcrypt = require('bcrypt');
+const User = require('../models/User')
+
+
+router.post('/', async (req, res) => {
+  if(!req.body.username || !req.body.password){
+    return res.status(400).json({message: {msgBody: "Incomplete information provided", error: true}});
+  }
+
+
+  if(req.body.username.length < 3 || req.body.password.length < 3){
+    return res.status(400).json({message: {msgBody:"Length of username and password should be 3 or more characters", error:true}});
+  }
+
+
+  let checkUser = await User.findOne({username: req.body.username});
+
+  //if username already exists
+  if(checkUser){
+    return res.status(400).json({message: {msgBody:"Username already exists", error:true}});
+  }
+
+  let newUser = new User({
+    username: req.body.username,
+    password: await bcrypt.hash(req.body.password, 10)
+  })
+
+  newUser.save()
+  .then( res.status(201).json({message: {msgBody: "User successfully created", error:false}}) )
+  .catch(err => {
+    //log error for server
+    console.log(err);
+    //send error to client
+    res.status(500).json({message: {msgBody: "Server Error", error:true}})
+  });
+
+})
+
+
+module.exports = router;
