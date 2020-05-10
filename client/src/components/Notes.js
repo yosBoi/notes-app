@@ -13,7 +13,7 @@ const Notes = props => {
   const [addNoteState, setAddNoteState] = useState(false);
 
   const addNote = () => {
-    setAddNoteState(true);
+    setAddNoteState(!addNoteState);
   }
 
   const renderNotes = () => {
