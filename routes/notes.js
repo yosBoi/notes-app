@@ -108,4 +108,38 @@ router.delete('/delete/:key', (req, res) => {
   });
 })
 
+router.patch('/', (req, res) => {
+  const token = req.cookies.access_token;
+
+  if(!token){
+    return res.status(401).json({message: {msgBody: "Missing auth token", error: true}});
+  }
+
+  jwt.verify(token, process.env.JWT_SECRET, async (err, user) => {
+    if(err){
+      return res.status(401).json({message: {msgBody: "Invalid JWT token", error:true}});
+    }
+
+    const noteUser = await User.findOne({username: user.username});
+
+    let note = await noteUser.notes.find(note => note._id == req.body._id);
+    if(!note)
+      return res.status(400).json({message: {msgBody: "Cannot locate note in database", error:true}});
+
+    let noteIndex = await noteUser.notes.indexOf(note);
+
+    noteUser.notes[noteIndex].title = req.body.title;
+    noteUser.notes[noteIndex].content = req.body.content;
+    noteUser.notes[noteIndex].color = req.body.color;
+
+    noteUser.save(err => {
+      if(err)
+        return res.status(500).json({message: {msgBody: "Server error", error:true}});
+      
+      return res.status(200).json({message: {msgBody: "Successfully edited note", error:false}})
+    })
+
+  });
+})
+
 module.exports = router;
