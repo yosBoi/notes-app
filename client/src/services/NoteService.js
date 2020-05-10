@@ -27,5 +27,15 @@ export default {
     }).then(response => {
       return response.json().then(data => data);
     })
+  },
+
+  editNote: (note) => {
+    return fetch('/api/notes', {
+      method: "patch",
+      body: JSON.stringify(note),
+      headers: { 'Content-Type': 'application/json' }
+    }).then(response => {
+      return response.json().then(data => data);
+    })
   }
 }
