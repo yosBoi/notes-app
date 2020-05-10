@@ -26,8 +26,13 @@ const NoteAdder = props => {
     })
   }
 
+  const closeNoteAdder = () => {
+    props.setAddNoteState(false);
+  }
+
   return(
     <div>
+      <button onClick={closeNoteAdder}>Close</button>
       <form onSubmit={onSubmit}>
         <label htmlFor="title">Title: </label>
         <input type="text" name="title" value={note.title} onChange={onChange} placeholder="Title" />
