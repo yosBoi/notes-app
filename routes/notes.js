@@ -61,6 +61,10 @@ router.post('/', async (req, res) => {
 
     ///////////////////////
 
+    if(!req.body.title || !req.body.content || !req.body.color){
+      return res.status(400).json({message: {msgBody: "Invalid request - Please provide all inputs", error: true}});
+    }
+
     const note = new Note(req.body);
     const noteUser = await User.findOne({username: user.username});
     noteUser.notes.push(note);
