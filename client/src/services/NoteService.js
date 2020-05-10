@@ -11,12 +11,19 @@ export default {
     })
   },
 
-
   postNote:  (note) => {
     return fetch('/api/notes', {
       method: 'post',
       body: JSON.stringify(note),
       headers: { 'Content-Type': 'application/json'}
+    }).then(response => {
+      return response.json().then(data => data);
+    })
+  },
+
+  deleteNote: (key) => {
+    return fetch(`/api/notes/delete/${key}`, {
+      method: 'delete'
     }).then(response => {
       return response.json().then(data => data);
     })

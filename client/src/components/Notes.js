@@ -32,7 +32,7 @@ const Notes = props => {
       <button onClick={renderNotes}>Refresh Notes</button>
       {
         notes.notes.map(noteItem => {
-          return <NoteItem key={noteItem._id} noteItem = {noteItem} />
+          return <NoteItem key={noteItem._id} noteItem = {noteItem} render = {renderNotes}/>
         })
       }
     </div>
