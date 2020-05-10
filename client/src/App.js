@@ -4,7 +4,6 @@ import Login from './components/Login';
 import Register from './components/Register';
 import Home from './components/Home';
 import Notes from './components/Notes';
-import NoteNew from './components/NoteNew';
 import PrivateRoute from './hocs/PrivateRoute';
 import UnPrivateRoute from './hocs/UnPrivateRoute';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
@@ -18,7 +17,6 @@ function App() {
       <UnPrivateRoute path="/login" component={Login} />
       <UnPrivateRoute path='/register' component={Register} />
       <PrivateRoute path="/notes" component={Notes} />
-      <PrivateRoute path="/notenew" component={NoteNew} />
     </Router>
   );
 }

@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
-import NoteService from '../services/NoteService';
 import Message from './Message';
+import NoteService from '../services/NoteService';
 
-const NoteNew = props => {
+const NoteAdder = props => {
 
   const [note, setNote] = useState({title: "", content: "", color: ""});
   const [message, setMessage] = useState(null);
@@ -19,12 +19,14 @@ const NoteNew = props => {
     e.preventDefault();
     NoteService.postNote(note).then(data => {
       setMessage(data.message);
-      if(!data.message.error)
+      if(!data.message.error){
         clearInputs();
+        props.setAddNoteState(false);
+      }
     })
   }
 
-  return (
+  return(
     <div>
       <form onSubmit={onSubmit}>
         <label htmlFor="title">Title: </label>
@@ -37,8 +39,7 @@ const NoteNew = props => {
       </form>
       {message ? <Message message={message} /> : null}
     </div>
-    
   )
 }
 
-export default NoteNew;
+export default NoteAdder;
