@@ -11,10 +11,16 @@ const NoteNew = props => {
     setNote({...note, [e.target.name]: e.target.value});
   }
 
+  const clearInputs = () => {
+    setNote({title: "", content: "", color: ""});
+  }
+
   const onSubmit = (e) => {
     e.preventDefault();
     NoteService.postNote(note).then(data => {
       setMessage(data.message);
+      if(!data.message.error)
+        clearInputs();
     })
   }
 
