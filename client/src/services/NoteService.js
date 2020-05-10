@@ -31,7 +31,7 @@ export default {
 
   editNote: (note) => {
     return fetch('/api/notes', {
-      method: "patch",
+      method: "PATCH",
       body: JSON.stringify(note),
       headers: { 'Content-Type': 'application/json' }
     }).then(response => {

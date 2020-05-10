@@ -15,9 +15,15 @@ const NoteItem = props => {
     })
   }
 
+  const editNote = () => {
+    props.setEditNoteState({note: props.noteItem, editing:true});
+    props.setAddNoteState(false);
+  }
+
   return(
     <div>
       <button onClick={deleteNote}>Delete</button>
+      <button onClick={editNote}>Edit</button>
       <h4>{props.noteItem.title}</h4>
       <p>{props.noteItem.content}</p>
       <p>{props.noteItem.color}</p>
