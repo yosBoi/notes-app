@@ -1,7 +1,6 @@
-import React, {useState,useContext, useRef} from 'react';
+import React, {useState, useRef} from 'react';
 import AuthService from '../services/AuthService';
 import Message from './Message';
-import {AuthContext} from '../context/AuthContext';
 
 const Register = props => {
 

@@ -1,5 +1,4 @@
-import React, {useState,useContext,useEffect} from 'react';
-import {Link} from 'react-router-dom';
+import React, {useState,useEffect} from 'react';
 import NoteItem from './NoteItem';
 import NoteService from '../services/NoteService';
 import NoteAdder from './NoteAdder';

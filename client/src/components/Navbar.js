@@ -7,7 +7,7 @@ import '../styles/css/navbar.min.css';
 
 const Navbar = props => {
 
-  const {isAuthenticated,user,setIsAuthenticated,setUser} = useContext(AuthContext);
+  const {isAuthenticated,setIsAuthenticated,setUser} = useContext(AuthContext);
 
   const onClickLogoutHandler = () => {
     AuthService.logout().then(data => {
