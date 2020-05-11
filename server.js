@@ -25,12 +25,13 @@ app.use('/api/logout', require('./routes/logout'));
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/notes', require('./routes/notes'));
 
+if(process.env.NODE_ENV == 'production'){
+  app.use(express.static(path.join(__dirname, 'client', 'build')));
 
-// app.use(express.static(path.join(__dirname, 'client', 'build')));
-
-// app.get('*', (req, res) => {
-//   res.send(path.join(__dirname, 'client', 'build', 'index.html'))
-// })
+  app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'))
+  })
+}
 
 
 
