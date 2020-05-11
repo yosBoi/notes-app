@@ -41,8 +41,10 @@ const Notes = props => {
       {message ? <Message message={message}/> : null}
       {addNoteState ? <NoteAdder setAddNoteState={setAddNoteState} render={renderNotes}/> : null}
       {editNoteState.editing ? <NoteEditor editNoteState={editNoteState} setEditNoteState={setEditNoteState} render={renderNotes}/> : null}
-      <button onClick={addNote}>Add note</button>
-      <button onClick={renderNotes}>Refresh Notes</button>
+      <div className="notes-buttons-container">
+        <button onClick={addNote}>Add note</button>
+        <button onClick={renderNotes}>Refresh Notes</button>
+      </div>
       <div className="notes-container">
         {
           notes.notes.map(noteItem => {

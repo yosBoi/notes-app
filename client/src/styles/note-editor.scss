@@ -1,4 +1,4 @@
-.note-adder-container{
+.note-editor-container{
   opacity: 0.9;
 
   border-radius: 30px;
@@ -50,17 +50,46 @@
       text-align: center;
       height: 35px;
       font-size: large;
+      font-weight: bold;
 
       border: solid 1px black;
       border-radius: 20px;
 
       margin-bottom: 20px;
+
+      &:focus{
+        outline: none;
+      }
+
     }
 
     textarea{
       resize: none;
       border:solid 1px black;
       margin-bottom: 20px;
+
+      font-size: medium;
+
+      &:focus{
+        outline: none;
+      }
+    }
+
+    select{
+      margin:auto;
+      width:10%;
+      height:25px;
+      margin-bottom: 30px;
+
+      option{
+
+        &:hover{
+          background-color: initial;
+        }
+        &:focus{
+          background-color: initial;
+        }
+      }
     }
 
     button{

@@ -5,34 +5,41 @@ $white: #eeeeee;
 
 
 .notes-body-container{
-  & > button{
+  .notes-buttons-container{
 
-    margin:25px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 
-    cursor: pointer;
+    button{
+      margin:25px;
 
-    margin-top: 20px;
-    height:30px;
+      cursor: pointer;
 
-    color:$white;
+      margin-top: 20px;
+      height:30px;
 
-    padding:0 15px;
+      color:$white;
 
-    background: transparent;
+      padding:0 15px;
 
-    border: solid 1px $blue;
-    border-radius: 25px;
+      background: transparent;
 
-    transition: all 0.2s;
+      border: solid 1px $blue;
+      border-radius: 25px;
 
-    &:hover{
-      background-color: $blue;
+      transition: all 0.2s;
+
+      &:hover{
+        background-color: $blue;
+      }
+
+      &:focus{
+        outline: none;
+      }
+
     }
-
-    &:focus{
-      outline: none;
-    }
-
   }
 }
 

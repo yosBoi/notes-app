@@ -24,10 +24,12 @@ const NoteItem = props => {
 
   return(
     <div style={{backgroundColor: `${props.noteItem.color}`}} className="note-item">
-      <button onClick={deleteNote} className="note-delete-button">Delete</button>
-      <button onClick={editNote} className="note-edit-button"><i class="fas fa-edit"></i></button>
+      <button onClick={deleteNote} className="note-delete-button"><i className="fas fa-trash-alt"></i></button>
+      <button onClick={editNote} className="note-edit-button"><i className="fas fa-edit"></i></button>
       <h4>{props.noteItem.title}</h4>
-      <p>{props.noteItem.content}</p>
+      <div className="content-container">
+        <p>{props.noteItem.content}</p>
+      </div>
       {message ? <Message message={message} /> : null }
     </div>
   );
