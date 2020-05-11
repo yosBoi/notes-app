@@ -37,7 +37,7 @@ const Notes = props => {
   return(
     <div>
       {message ? <Message message={message}/> : null}
-      {addNoteState ? <NoteAdder setAddNoteState={setAddNoteState}/> : null}
+      {addNoteState ? <NoteAdder setAddNoteState={setAddNoteState} render={renderNotes}/> : null}
       {editNoteState.editing ? <NoteEditor editNoteState={editNoteState} setEditNoteState={setEditNoteState} render={renderNotes}/> : null}
       <button onClick={addNote}>Add note</button>
       <button onClick={renderNotes}>Refresh Notes</button>

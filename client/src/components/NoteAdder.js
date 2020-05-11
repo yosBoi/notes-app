@@ -22,6 +22,7 @@ const NoteAdder = props => {
       if(!data.message.error){
         clearInputs();
         props.setAddNoteState(false);
+        props.render();
       }
     })
   }
