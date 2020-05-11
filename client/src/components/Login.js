@@ -12,13 +12,12 @@ const Login = props => {
 
   const onChange = (e) => {
     setUser({...user, [e.target.name]: e.target.value})
-    //e.target.className = e.target.value.length >= 3 ? "valid-input" : "invalid-input";
-    if(e.target.value.length >= 3){
-      e.target.className = "valid-input";
-    }
-    else{
-      e.target.className = "invalid-input";
-    }
+    // if(e.target.value.length >= 3){
+    //   e.target.className = "valid-input";
+    // }
+    // else{
+    //   e.target.className = "invalid-input";
+    // }
   }
 
   const onSubmit = (e) => {
@@ -47,9 +46,9 @@ const Login = props => {
       <form onSubmit={onSubmit}>
         <h3>Please enter credentials</h3>
         <label htmlFor="username">Username: </label>
-        <input type="text" name="username" onChange={onChange} placeholder="Username" required minLength="3" maxLength="24"/>
+        <input type="text" name="username" onChange={onChange} placeholder="Username" required/>
         <label htmlFor="password">Password: </label>
-        <input type="password" name="password" onChange={onChange} placeholder="Password" required maxLength="64"/>
+        <input type="password" name="password" onChange={onChange} placeholder="Password" required/>
         <button type="submit">Log In</button>
       </form>
       {message ? <Message message = {message}/> : null}
