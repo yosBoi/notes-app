@@ -12,14 +12,14 @@ router.post('/', async (req, res) => {
 
   //if username or password less than 3 chars
   if(req.body.username.length < 3 || req.body.password.length < 3){
-    return res.status(400).json({message: {msgBody:"Username and Password must be 3 or more characters", error:true}});
+    return res.status(404).json({message: {msgBody:"Wrong username and password combination", error:true}});
   }
 
   let user = await User.findOne({username: req.body.username});
 
   ///if user not found in DB
   if(!user){
-    return res.status(404).json({message: {msgBody:"User doesn't exist", error:true}});
+    return res.status(404).json({message: {msgBody:"Wrong username and password combination", error:true}});
   }
 
   await bcrypt.compare(req.body.password, user.password, (err, result) => {
@@ -28,7 +28,7 @@ router.post('/', async (req, res) => {
     }
     //if password doesnt match
     if(!result){
-      return res.status(401).json({message: {msgBody: "Wrong password", error:true}});
+      return res.status(401).json({message: {msgBody: "Wrong username and password combination", error:true}});
     }
 
     const token = jwt.sign({
