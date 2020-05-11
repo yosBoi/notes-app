@@ -2,6 +2,8 @@ import React, {useState, useRef} from 'react';
 import AuthService from '../services/AuthService';
 import Message from './Message';
 
+import '../styles/css/register.min.css'
+
 const Register = props => {
 
   const [user, setUser] = useState({username: "", password: ""});
@@ -10,6 +12,12 @@ const Register = props => {
 
   const onchange = (e) => {
     setUser({...user, [e.target.name]: e.target.value});
+    if(e.target.value.length >= 3){
+      e.target.className = "valid-input";
+    }
+    else{
+      e.target.className = "invalid-input";
+    }
   }
 
   const onSubmit = (e) => {
@@ -28,7 +36,7 @@ const Register = props => {
 
 
   return(
-    <div>
+    <div className="register-form">
       <form onSubmit={onSubmit}>
         <h3>Enter details</h3>
         <label htmlFor="username">Username: </label>

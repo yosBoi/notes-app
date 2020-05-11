@@ -3,6 +3,8 @@ import AuthService from '../services/AuthService';
 import Message from './Message';
 import {AuthContext} from '../context/AuthContext';
 
+import '../styles/css/login.min.css';
+
 const Login = props => {
   const [user, setUser] = useState({username: "", password: ""});
   const [message, setMessage] = useState(null);
@@ -10,6 +12,13 @@ const Login = props => {
 
   const onChange = (e) => {
     setUser({...user, [e.target.name]: e.target.value})
+    //e.target.className = e.target.value.length >= 3 ? "valid-input" : "invalid-input";
+    if(e.target.value.length >= 3){
+      e.target.className = "valid-input";
+    }
+    else{
+      e.target.className = "invalid-input";
+    }
   }
 
   const onSubmit = (e) => {
@@ -34,7 +43,7 @@ const Login = props => {
   }
 
   return(
-    <div>
+    <div  className="login-form">
       <form onSubmit={onSubmit}>
         <h3>Please enter credentials</h3>
         <label htmlFor="username">Username: </label>

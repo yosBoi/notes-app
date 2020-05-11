@@ -1,12 +1,14 @@
 import React from 'react';
 
+import '../styles/css/message.min.css';
+
 const getStyle = props => {
   let style;
   if(props.message.error){
-    style = "error";
+    style = "error-message";
   }
   else{
-    style = "success";
+    style = "success-message";
   }
   return style;
 }

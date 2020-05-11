@@ -1,0 +1,17 @@
+$blue: #00adb5;
+
+
+.menu-redirect{
+
+  h3,p{  margin-top:50px;
+    text-align: center;
+
+    a{
+      color:$blue;
+      text-decoration: underline;
+
+      &:visited{
+        color: $blue;
+      }
+    }}
+}

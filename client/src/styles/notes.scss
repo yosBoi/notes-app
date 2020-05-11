@@ -1,0 +1,49 @@
+$dark-grey: #222831;
+$light-grey: #393e46;
+$blue: #00adb5;
+$white: #eeeeee;
+
+
+.notes-body-container{
+  & > button{
+
+    margin:25px;
+
+    cursor: pointer;
+
+    margin-top: 20px;
+    height:30px;
+
+    color:$white;
+
+    padding:0 15px;
+
+    background: transparent;
+
+    border: solid 1px $blue;
+    border-radius: 25px;
+
+    transition: all 0.2s;
+
+    &:hover{
+      background-color: $blue;
+    }
+
+    &:focus{
+      outline: none;
+    }
+
+  }
+}
+
+
+
+.notes-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+
+  margin-top: 40px;
+}

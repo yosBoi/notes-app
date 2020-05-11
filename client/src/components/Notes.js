@@ -6,6 +6,8 @@ import NoteEditor from './NoteEditor';
 import Message from './Message';
 //import { AuthContext } from '../context/AuthContext';
 
+import '../styles/css/notes.min.css'
+
 const Notes = props => {
   const [notes, setNotes] = useState({"notes" : []});
   const [message, setMessage] = useState(null);
@@ -35,17 +37,19 @@ const Notes = props => {
   useEffect(renderNotes, []);
 
   return(
-    <div>
+    <div className="notes-body-container">
       {message ? <Message message={message}/> : null}
       {addNoteState ? <NoteAdder setAddNoteState={setAddNoteState} render={renderNotes}/> : null}
       {editNoteState.editing ? <NoteEditor editNoteState={editNoteState} setEditNoteState={setEditNoteState} render={renderNotes}/> : null}
       <button onClick={addNote}>Add note</button>
       <button onClick={renderNotes}>Refresh Notes</button>
-      {
-        notes.notes.map(noteItem => {
-          return <NoteItem key={noteItem._id} noteItem = {noteItem} render = {renderNotes} setEditNoteState={setEditNoteState} setAddNoteState={setAddNoteState}/>
-        })
-      }
+      <div className="notes-container">
+        {
+          notes.notes.map(noteItem => {
+            return <NoteItem key={noteItem._id} noteItem = {noteItem} render = {renderNotes} setEditNoteState={setEditNoteState} setAddNoteState={setAddNoteState}/>
+          })
+        }
+      </div>
     </div>
   )
 }

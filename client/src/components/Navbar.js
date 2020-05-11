@@ -3,6 +3,8 @@ import {Link} from 'react-router-dom';
 import AuthService from '../services/AuthService';
 import {AuthContext} from '../context/AuthContext';
 
+import logo from '../logo.svg';
+
 import '../styles/css/navbar.min.css';
 
 const Navbar = props => {
@@ -25,25 +27,9 @@ const Navbar = props => {
   const unauthenticatedNavbar = () =>{
     return(
       <ul className="navbar-elements">
-        <Link to="/">
-          <li>Home</li>
-        </Link>
-        <Link to="/login">
-          <li>Login</li>
-        </Link>
-        <Link to="/register">
-          <li>Register</li>
-        </Link>
-        {/* <button onClick={function(){
-          AuthService.login({username:"yash", password:"qwerty"})
-          .then(data => {
-            console.log(data);
-            if(data.isAuthenticated === true){
-              setIsAuthenticated(true);
-            }
-          })}}>
-          set
-        </button> */}
+        <li><Link to="/"> Home </Link></li>
+        <li><Link to="/login"> Login </Link></li>
+        <li><Link to="/register"> Register </Link></li>
       </ul>
     )
   }
@@ -51,12 +37,8 @@ const Navbar = props => {
   const authenticatedNavbar = () => {
     return(
       <ul className="navbar-elements">
-        <Link to="/">
-          <li>Home</li>
-        </Link>
-        <Link to="/notes">
-          <li>Notes</li>
-        </Link>
+        <li><Link to="/"> Home </Link></li>
+        <li><Link to="/notes"> Notes </Link></li>
         <button onClick={onClickLogoutHandler}>
           Logout
         </button>
@@ -66,9 +48,9 @@ const Navbar = props => {
 
 
   return (
-    <nav className="navbar">
+    <nav>
       <Link to="/">
-        <div className="navbar-logo">YOS</div>
+        <div className="navbar-logo"><img src={logo} alt="logo"></img></div>
       </Link>
       <div className="navbar-elements-container">
         {isAuthenticated ? authenticatedNavbar() : unauthenticatedNavbar()}
