@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const NoteSchema = new mongoose.Schema({
   title:{
     type: String,
-    max:12
+    maxlength: 12
   },
   content:{
     type: String,
@@ -12,6 +12,8 @@ const NoteSchema = new mongoose.Schema({
   },
   color: {
     type: String,
+    minlength: 7,
+    maxlength: 7
   }
 });
 
@@ -19,12 +21,13 @@ const UserSchema = new mongoose.Schema({
   username: {
     type: String,
     required: true,
-    min: 3,
-    max: 24
+    minlength: 3,
+    maxlength: 24
   },
   password: {
     type: String,
-    required: true
+    required: true,
+    maxlength: 64
   },
   notes: [NoteSchema]
 });

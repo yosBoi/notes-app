@@ -8,11 +8,13 @@ const User = require('../models/User')
 router.get('/', async (req, res) => {
   const token = req.cookies.access_token;
 
+  //if token missing
   if(!token){
     return res.status(401).json({message: {msgBody: "Missing auth token", error: true}});
   }
 
   jwt.verify(token, process.env.JWT_SECRET, async (err, user) => {
+    //if token validation fails
     if(err){
       return res.status(401).json({message: {msgBody: "Invalid JWT token", error:true}});
     }
@@ -30,11 +32,13 @@ router.get('/', async (req, res) => {
 router.post('/', async (req, res) => {
   const token = req.cookies.access_token;
 
+  //if token missing
   if(!token){
     return res.status(401).json({message: {msgBody: "Missing auth token", error: true}});
   }
 
   jwt.verify(token, process.env.JWT_SECRET, async (err, user) => {
+    //if token validation fails
     if(err){
       return res.status(401).json({message: {msgBody: "Invalid JWT token", error:true}});
     }
@@ -61,9 +65,10 @@ router.post('/', async (req, res) => {
 
     ///////////////////////
 
-    if(!req.body.title || !req.body.content || !req.body.color){
-      return res.status(400).json({message: {msgBody: "Invalid request - Please provide all inputs", error: true}});
-    }
+    //if new note doesn't have title, content or color
+    // if(!req.body.title || !req.body.content || !req.body.color){
+    //   return res.status(400).json({message: {msgBody: "Invalid request - Please provide all inputs", error: true}});
+    // }
 
     const note = new Note(req.body);
     const noteUser = await User.findOne({username: user.username});
@@ -81,11 +86,13 @@ router.delete('/delete/:key', (req, res) => {
 
   const token = req.cookies.access_token;
 
+  //if token doesn't exist
   if(!token){
     return res.status(401).json({message: {msgBody: "Missing auth token", error: true}});
   }
 
   jwt.verify(token, process.env.JWT_SECRET, async (err, user) => {
+    //if token verification fails
     if(err){
       return res.status(401).json({message: {msgBody: "Invalid JWT token", error:true}});
     }
@@ -93,6 +100,8 @@ router.delete('/delete/:key', (req, res) => {
     const noteUser = await User.findOne({username: user.username});
 
     let note = await noteUser.notes.find(note => note._id == req.params.key);
+
+    //if note doesnt exist in DB
     if(!note)
       return res.status(400).json({message: {msgBody: "bad request - note not found for deletion", error:true}});
 
@@ -123,6 +132,8 @@ router.patch('/', (req, res) => {
     const noteUser = await User.findOne({username: user.username});
 
     let note = await noteUser.notes.find(note => note._id == req.body._id);
+
+    //if note doesnt exist
     if(!note)
       return res.status(400).json({message: {msgBody: "Cannot locate note in database", error:true}});
 

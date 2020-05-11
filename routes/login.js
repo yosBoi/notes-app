@@ -5,19 +5,20 @@ const User = require('../models/User')
 const jwt = require('jsonwebtoken');
 
 router.post('/', async (req, res) => {
+  //if username or password missing
   if(!req.body.username || !req.body.password){
     return res.status(400).json({message: {msgBody: "Incomplete login information provided", error:true}});
   }
 
+  //if username or password less than 3 chars
   if(req.body.username.length < 3 || req.body.password.length < 3){
-
     return res.status(400).json({message: {msgBody:"Username and Password must be 3 or more characters", error:true}});
   }
 
   let user = await User.findOne({username: req.body.username});
 
+  ///if user not found in DB
   if(!user){
-
     return res.status(404).json({message: {msgBody:"User doesn't exist", error:true}});
   }
 

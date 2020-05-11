@@ -1,3 +1,4 @@
+//for using locally stored environment variables using dotenv package
 if(process.env.NODE_ENV !== "production"){
   require('dotenv').config();
 }
@@ -15,10 +16,11 @@ mongoose.connect(process.env.MONGO_URI, {
 .then(() => console.log('mongo connected'))
 .catch((err) => console.log(err));
 
-
+//middlewares
 app.use(cookieParser());
 app.use(express.json());
 
+//routes
 app.use('/api/login', require('./routes/login'));
 app.use('/api/register', require('./routes/register'));
 app.use('/api/logout', require('./routes/logout'));
