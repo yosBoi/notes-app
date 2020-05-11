@@ -1,5 +1,5 @@
 .note-editor-container{
-  opacity: 0.9;
+  opacity: 0.95;
 
   border-radius: 30px;
   padding:20px;
@@ -11,7 +11,7 @@
   height:80vh;
   width:80vw;
 
-  background-color: white;;
+  //background-color: white;;
 
   //centering div on screen
   top: 50%;
@@ -44,6 +44,7 @@
     label{
       text-align: center;
       font-size: x-large;
+      font-weight: bold;
     }
 
     input{
@@ -75,26 +76,45 @@
       }
     }
 
-    select{
-      margin:auto;
-      width:10%;
-      height:25px;
-      margin-bottom: 30px;
+    .color-input-container{
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
 
-      option{
 
-        &:hover{
-          background-color: initial;
+      .color-input-label{
+        display: block;
+        cursor: pointer;
+        user-select: none;
+
+        width:25px;
+        height: 25px;
+        margin:5px;
+
+        .color-input{
+          height: 100%;
+          width: 100%;
+          border: solid 1px black;
+          border-radius: 50%;
+
         }
-        &:focus{
-          background-color: initial;
+
+        input{
+          position: absolute;
+          opacity: 0;
+          cursor: pointer;
+          height: 0;
+          width: 0;
         }
       }
     }
 
     button{
+
       cursor: pointer;
       margin: auto;
+      margin-top:10px;
       padding:5px 15px;
       border: solid 1px black;
       border-radius: 25px;
