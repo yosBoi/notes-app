@@ -38,7 +38,7 @@ const NoteAdder = props => {
       <button onClick={closeNoteAdder}><i className="far fa-window-close"></i></button>
       <form onSubmit={onSubmit}>
         <label htmlFor="title">Title: </label>
-        <input type="text" name="title" value={note.title} onChange={onChange} placeholder="Title" maxLength="10"/>
+        <input type="text" name="title" value={note.title} onChange={onChange} placeholder="Title" maxLength="10" required/>
         <label htmlFor="content">Content: </label>
         {/* <input type="text" name="content" value={note.content} onChange={onChange} placeholder="Content" /> */}
         <textarea rows="10" name="content" value={note.content} onChange={onChange} placeholder="Content"  required></textarea>
