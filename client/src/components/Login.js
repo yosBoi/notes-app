@@ -47,9 +47,9 @@ const Login = props => {
       <form onSubmit={onSubmit}>
         <h3>Please enter credentials</h3>
         <label htmlFor="username">Username: </label>
-        <input type="text" name="username" onChange={onChange} placeholder="Username" required/>
+        <input type="text" name="username" onChange={onChange} placeholder="Username" required minLength="3" maxLength="24"/>
         <label htmlFor="password">Password: </label>
-        <input type="password" name="password" onChange={onChange} placeholder="Password" required/>
+        <input type="password" name="password" onChange={onChange} placeholder="Password" required maxLength="64"/>
         <button type="submit">Log In</button>
       </form>
       {message ? <Message message = {message}/> : null}

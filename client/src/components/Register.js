@@ -40,9 +40,9 @@ const Register = props => {
       <form onSubmit={onSubmit}>
         <h3>Enter details</h3>
         <label htmlFor="username">Username: </label>
-        <input type="text" name="username" onChange={onchange} placeholder="Username" value={user.username} required/>
+        <input type="text" name="username" onChange={onchange} placeholder="Username" value={user.username} required minLength="3" maxLength="24"/>
         <label htmlFor="password">Password: </label>
-        <input type="password" name="password" onChange={onchange} placeholder="Password" value={user.password} required/>
+        <input type="password" name="password" onChange={onchange} placeholder="Password" value={user.password} required maxLength="64"/>
         <button type="submit">Register</button>
       </form>
       {message ? <Message message={message} /> : null}
