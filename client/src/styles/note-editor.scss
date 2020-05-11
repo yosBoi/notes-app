@@ -1,5 +1,6 @@
 .note-editor-container{
-  opacity: 0.95;
+
+  overflow-y: auto;
 
   border-radius: 30px;
   padding:20px;
