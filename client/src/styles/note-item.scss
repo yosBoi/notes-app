@@ -41,5 +41,18 @@
     font-size: x-large;
   }
 
+  .delete-confirm-buttons{
+    
+    margin-top: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+
+    .delete-yes{
+      padding: 0 10px;
+      background-color: black;
+    }
+  }
 
 }

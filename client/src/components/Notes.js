@@ -62,7 +62,7 @@ const Notes = props => {
       <div className="notes-container">
         {
           notes.notes.map(noteItem => {
-            return <NoteItem key={noteItem._id} noteItem = {noteItem} render = {renderNotes} setEditNoteState={setEditNoteState} setAddNoteState={setAddNoteState}/>
+            return <NoteItem key={noteItem._id} noteItem = {noteItem} render = {renderNotes} editNoteState={editNoteState} setEditNoteState={setEditNoteState} setAddNoteState={setAddNoteState}/>
           })
         }
       </div>
