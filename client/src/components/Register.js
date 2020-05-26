@@ -1,4 +1,4 @@
-import React, {useState, useRef} from 'react';
+import React, {useState, useRef, useEffect} from 'react';
 import AuthService from '../services/AuthService';
 import Message from './Message';
 
@@ -13,6 +13,13 @@ const Register = props => {
   const [message, setMessage] = useState(null);
 
   let timer = useRef(null);
+
+  //remove timer when unmounting
+  useEffect(() => {
+    return() => {
+      clearTimeout(timer);
+    }
+  },[]);
 
   const onchange = (e) => {
     setUser({...user, [e.target.name]: e.target.value});
