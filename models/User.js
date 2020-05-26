@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-//const Note = require('./Note');
 
 const NoteSchema = new mongoose.Schema({
   title:{
