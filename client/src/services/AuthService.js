@@ -1,6 +1,7 @@
+// to-do - change from fetch to axios
+
 export default {
   login : user =>{
-      //console.log(user);
       return fetch('/api/login',{
           method : "post",
           body : JSON.stringify(user),
@@ -8,6 +9,7 @@ export default {
               'Content-Type' : 'application/json'
           }
       }).then(res => {
+          //if response is OK
           if(res.status === 200)
               return res.json().then(data => data);
           else
@@ -30,6 +32,7 @@ export default {
         .then(res => res.json())
         .then(data => data);
   },
+  //just to check if user has jwt token in cookies or not
   isAuthenticated : ()=>{
       return fetch('/api/auth').then(res=>{
         if(res.status === 200)

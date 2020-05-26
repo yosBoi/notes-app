@@ -11,6 +11,7 @@ const Navbar = props => {
 
   const {isAuthenticated,setIsAuthenticated,setUser} = useContext(AuthContext);
 
+  //logout function for logout button
   const onClickLogoutHandler = () => {
     AuthService.logout().then(data => {
       if(!data.message.error){
@@ -53,6 +54,7 @@ const Navbar = props => {
         <div className="navbar-logo"><img src={logo} alt="logo"></img></div>
       </Link>
       <div className="navbar-elements-container">
+        {/*Display navbar depending on isAuthenticated state of authContenxt*/}
         {isAuthenticated ? authenticatedNavbar() : unauthenticatedNavbar()}
       </div>
     </nav>

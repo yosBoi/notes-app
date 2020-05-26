@@ -6,7 +6,11 @@ import {AuthContext} from '../context/AuthContext';
 import '../styles/css/login.min.css';
 
 const Login = props => {
+  
+  //to keep track of current user info being entered
   const [user, setUser] = useState({username: "", password: ""});
+
+  //to keep track if error msg exists and what error msg is
   const [message, setMessage] = useState(null);
   const authContext = useContext(AuthContext);
 
@@ -30,7 +34,6 @@ const Login = props => {
         console.log("authenticated");
         //setMessage(data.message); 
         //redirect
-        //window.location.href = "/";
         props.history.push('/');
 
       }
@@ -51,6 +54,7 @@ const Login = props => {
         <input type="password" name="password" onChange={onChange} placeholder="Password" required/>
         <button type="submit">Log In</button>
       </form>
+      {/* this message component only displays if message (in message state) exists */}
       {message ? <Message message = {message}/> : null}
     </div>
   )

@@ -6,12 +6,18 @@ import '../styles/css/register.min.css'
 
 const Register = props => {
 
+  //keeps track of the new user
   const [user, setUser] = useState({username: "", password: ""});
+
+  //keeps track of error or success msg
   const [message, setMessage] = useState(null);
+
   let timer = useRef(null);
 
   const onchange = (e) => {
     setUser({...user, [e.target.name]: e.target.value});
+
+    //change outline of text fields (css) based on input length validation
     if(e.target.value.length >= 3){
       e.target.className = "valid-input";
     }
@@ -26,6 +32,7 @@ const Register = props => {
       
       setMessage(data.message);
       
+      //if no error in registering, redirect to login page after 3s so user has time to read success msg
       if(!data.message.error){
         timer = setTimeout(() => {
           window.location.href = './login'
@@ -45,6 +52,7 @@ const Register = props => {
         <input type="password" name="password" onChange={onchange} placeholder="Password" value={user.password} required minLength ="3" maxLength="64"/>
         <button type="submit">Register</button>
       </form>
+      {/*display msg if it exists*/}
       {message ? <Message message={message} /> : null}
     </div>
   )
