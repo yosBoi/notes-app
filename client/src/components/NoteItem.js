@@ -49,7 +49,7 @@ const NoteItem = props => {
     <div style={{backgroundColor: `${props.noteItem.color}`}} className="note-item">
 
       {/*button changes deleting state which changes the rendered content, loses onClick if a note is being edited*/}
-      <button onClick={props.editNoteState ? deleteConfirm : null} className="note-delete-button"><i className="fas fa-trash-alt"></i></button>
+      <button onClick={props.editNoteState.editing ? null : deleteConfirm} className="note-delete-button"><i className="fas fa-trash-alt"></i></button>
 
       {/*if note is being deleted, edit button loses onClick and changes cursor*/}
       <button onClick={deleting? null : editNote} className="note-edit-button" style={{cursor: deleting ? "not-allowed" : "pointer"}}><i className="fas fa-edit"></i></button>
