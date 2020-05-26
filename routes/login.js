@@ -31,8 +31,8 @@ router.post('/', async (req, res) => {
       return res.status(401).json({message: {msgBody: "Wrong username and password combination", error:true}});
     }
 
-    const token = jwt.sign({
-      username: user.username,},
+    const token = jwt.sign(
+      {username: user.username},
       process.env.JWT_SECRET, 
       {expiresIn: "2h"}
     );
@@ -41,22 +41,6 @@ router.post('/', async (req, res) => {
     res.status(200).json({isAuthenticated: true, username: req.body.username, message: {msgBody:`Successfully loged in as ${user.username}`, error:false}});
   })
 
-
-  // if(!bcrypt.compare(req.body.password, user.password)){
-  //   console.log("d")
-
-  //   return res.status(401).json({message: {msgBody: "Wrong password", error:true}});
-  // }
-
-  // const token = jwt.sign({
-  //   username: user.username,},
-  //   process.env.JWT_SECRET, 
-  //   {expiresIn: "2h"}
-  // );
-  // console.log("e")
-
-  // res.cookie('access_token', token, {httpOnly: true});
-  // res.status(200).json({isAuthenticated: true, username: req.body.username, message: {msgBody:`Successfully loged in as ${user.username}`, error:false}});
 })
 
 
