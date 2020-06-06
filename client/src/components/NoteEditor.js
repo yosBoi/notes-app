@@ -67,28 +67,36 @@ const NoteEditor = props => {
             <input type='radio' value="#ffffff" name="color" onChange={onChange}/>
           </label>
           <label className='color-input-label'>
-            <div className="color-input" style={{backgroundColor: "#DBF9F4"}}></div>
-            <input type='radio' value="#DBF9F4" name="color" onChange={onChange}/>
+            <div className="color-input" style={{backgroundColor: "#ffadad"}}></div>
+            <input type='radio' value="#ffadad" name="color" onChange={onChange}/>
           </label>
           <label className='color-input-label'>
-            <div className="color-input" style={{backgroundColor: "#FAE3C6"}}></div>
-            <input type='radio' value="#FAE3C6" name="color" onChange={onChange}/>
+            <div className="color-input" style={{backgroundColor: "#ffd6a5"}}></div>
+            <input type='radio' value="#ffd6a5" name="color" onChange={onChange}/>
           </label>
           <label className='color-input-label'>
-            <div className="color-input" style={{backgroundColor: "#F564A9"}}></div>
-            <input type='radio' value="#F564A9" name="color" onChange={onChange}/>
+            <div className="color-input" style={{backgroundColor: "#fdffb6"}}></div>
+            <input type='radio' value="#fdffb6" name="color" onChange={onChange}/>
           </label>
           <label className='color-input-label'>
-            <div className="color-input" style={{backgroundColor: "#C3BEF7"}}></div>
-            <input type='radio' value="#C3BEF7" name="color" onChange={onChange}/>
+            <div className="color-input" style={{backgroundColor: "#caffbf"}}></div>
+            <input type='radio' value="#caffbf" name="color" onChange={onChange}/>
           </label>
           <label className='color-input-label'>
-            <div className="color-input" style={{backgroundColor: "#E1F0C4"}}></div>
-            <input type='radio' value="#E1F0C4" name="color" onChange={onChange}/>
+            <div className="color-input" style={{backgroundColor: "#9bf6ff"}}></div>
+            <input type='radio' value="#9bf6ff" name="color" onChange={onChange}/>
           </label>
           <label className='color-input-label'>
-            <div className="color-input" style={{backgroundColor: "#BCEBCB"}}></div>
-            <input type='radio' value="#BCEBCB" name="color" onChange={onChange}/>
+            <div className="color-input" style={{backgroundColor: "#a0c4ff"}}></div>
+            <input type='radio' value="#a0c4ff" name="color" onChange={onChange}/>
+          </label>
+          <label className='color-input-label'>
+            <div className="color-input" style={{backgroundColor: "#bdb2ff"}}></div>
+            <input type='radio' value="#bdb2ff" name="color" onChange={onChange}/>
+          </label>
+          <label className='color-input-label'>
+            <div className="color-input" style={{backgroundColor: "#ffc6ff"}}></div>
+            <input type='radio' value="#ffc6ff" name="color" onChange={onChange}/>
           </label>
         </div>
         <button type="submit">Submit</button>

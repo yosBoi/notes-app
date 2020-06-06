@@ -80,6 +80,8 @@
       justify-content: center;
       align-items: center;
 
+      margin:10px;
+
 
       .color-input-label{
         display: block;
@@ -93,8 +95,10 @@
         .color-input{
           height: 100%;
           width: 100%;
-          border: solid 1px black;
+          //border: solid 1px black;
           border-radius: 50%;
+
+          box-shadow: 1px 1px 10px;
 
         }
 
