@@ -17,6 +17,8 @@
   .content-container{
     max-height: 25vh;
     overflow-y: auto;
+
+    word-wrap: break-word;
   }
 
   button{
