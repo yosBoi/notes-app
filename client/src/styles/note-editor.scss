@@ -12,6 +12,8 @@
   height:80vh;
   width:80vw;
 
+  min-width:300px;
+
   //background-color: white;;
 
   //centering div on screen
@@ -83,6 +85,9 @@
       justify-content: center;
       align-items: center;
 
+      //width:320px;
+      overflow-x: auto;
+
 
       .color-input-label{
         display: block;
@@ -90,6 +95,7 @@
         user-select: none;
 
         width:25px;
+        min-width:25px;
         height: 25px;
         margin:5px;
 
@@ -99,7 +105,7 @@
           //border: solid 1px black;
           border-radius: 50%;
 
-          box-shadow: 1px 1px 10px;
+          box-shadow: 0 1px 5px;
 
         }
 
@@ -137,5 +143,11 @@
         color: white;
       }
     }
+  }
+}
+
+@media (max-width: 440px){
+  .color-input-container{
+    justify-content: flex-start !important;
   }
 }

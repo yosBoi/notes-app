@@ -52,6 +52,7 @@ const NoteAdder = props => {
     //change background color of whole div dynamically based on what color is currently selected
     <div className="note-adder-container" style={{backgroundColor: `${note.color}`}}>
       <button onClick={closeNoteAdder}><i className="far fa-window-close"></i></button>
+      <br/>
       <form onSubmit={onSubmit}>
         <label htmlFor="title">Title: </label>
         <input type="text" name="title" value={note.title} onChange={onChange} placeholder="Title" maxLength="12" required/>
