@@ -12,10 +12,13 @@
   border-radius: 20px;
   padding:20px;
 
-  max-height: 40vh;
+  //height: 40vh;
+
+  min-height: 200px;
+  max-height: 400px;
 
   .content-container{
-    max-height: 25vh;
+    max-height: 300px;
     overflow-y: auto;
 
     word-wrap: break-word;
