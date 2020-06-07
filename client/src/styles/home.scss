@@ -47,7 +47,17 @@ footer{
   background-color: $dark-grey;
   text-align: center;
   font-size: 25px;
+  color:$white;
 
   position: absolute;
   bottom: 0;
+
+  a{
+    color:$white;
+    text-decoration: none;
+
+    &:visited{
+      color:$white;
+    }
+  }
 }
