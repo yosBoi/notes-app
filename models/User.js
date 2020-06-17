@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+require('mongoose-type-email');
 
 const NoteSchema = new mongoose.Schema({
   title:{
@@ -17,9 +18,15 @@ const NoteSchema = new mongoose.Schema({
 });
 
 const UserSchema = new mongoose.Schema({
+  email:{
+    type: mongoose.SchemaTypes.Email,
+    required: true,
+    unique: true
+  },
   username: {
     type: String,
     required: true,
+    unique: true,
     minlength: 3,
     maxlength: 24
   },
@@ -27,6 +34,10 @@ const UserSchema = new mongoose.Schema({
     type: String,
     required: true,
     maxlength: 64
+  },
+  recoveryCode: {
+    type: String,
+    default: null
   },
   notes: [NoteSchema]
 });

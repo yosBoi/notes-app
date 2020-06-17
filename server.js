@@ -26,6 +26,7 @@ app.use('/api/register', require('./routes/register'));
 app.use('/api/logout', require('./routes/logout'));
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/notes', require('./routes/notes'));
+app.use('/api/forgot', require('./routes/forgot'));
 
 if(process.env.NODE_ENV == 'production'){
   app.use(express.static(path.join(__dirname, 'client', 'build')));

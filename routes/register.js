@@ -5,8 +5,8 @@ const User = require('../models/User')
 
 
 router.post('/', async (req, res) => {
-  //if username or password absent
-  if(!req.body.username || !req.body.password){
+  //if email or username or password absent
+  if(!req.body.username || !req.body.password || !req.body.email){
     return res.status(400).json({message: {msgBody: "Incomplete information provided", error: true}});
   }
 
@@ -16,14 +16,22 @@ router.post('/', async (req, res) => {
   }
 
 
-  let checkUser = await User.findOne({username: req.body.username});
+  let checkUsername = await User.findOne({username: req.body.username});
 
   //if username already exists
-  if(checkUser){
+  if(checkUsername){
     return res.status(400).json({message: {msgBody:"Username already exists", error:true}});
   }
 
+  let checkEmail = await User.findOne({email: req.body.email});
+
+  //if email already exists
+  if(checkEmail){
+    return res.status(400).json({message: {msgBody: "Email already registered", error:true}});
+  }
+
   let newUser = new User({
+    email: req.body.email,
     username: req.body.username,
     password: await bcrypt.hash(req.body.password, 10)
   })
