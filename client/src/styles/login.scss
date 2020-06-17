@@ -90,7 +90,12 @@ $white: #eeeeee;
   text-align: center;
 
   a{
+    color:white;
     text-decoration: underline;
+
+    &:visited{
+      color: white;
+    }
   }
 }
 
