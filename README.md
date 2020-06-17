@@ -2,8 +2,12 @@
 
 Web app made using MERN stack.
 
+React context is used for maintaining auth state and user.
+React hooks are used for state management.
+
 Users can register/log in and create/edit/delete notes.
-User info and notes are stored in database.
+Users can reset password (using recovery code sent to their registered email ID).
+User info and notes are stored in a mongoDB database.
 
 User passwords are hashed using bcrypt, and session authentication is done using JWT
 
