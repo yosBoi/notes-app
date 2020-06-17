@@ -7,7 +7,7 @@ import '../styles/css/register.min.css'
 const Register = props => {
 
   //keeps track of the new user
-  const [user, setUser] = useState({username: "", password: ""});
+  const [user, setUser] = useState({email: "", username: "", password: ""});
 
   //keeps track of error or success msg
   const [message, setMessage] = useState(null);
@@ -24,17 +24,20 @@ const Register = props => {
   const onchange = (e) => {
     setUser({...user, [e.target.name]: e.target.value});
 
-    //change outline of text fields (css) based on input length validation
-    if(e.target.value.length >= 3){
-      e.target.className = "valid-input";
-    }
-    else{
-      e.target.className = "invalid-input";
+    //change outline of text fields (css) based on input length validation (only for username and password)
+    if(e.target.name === "username" || e.target.name === "password"){
+      if(e.target.value.length >= 3){
+        e.target.className = "valid-input";
+      }
+      else{
+        e.target.className = "invalid-input";
+      }
     }
   }
 
   const onSubmit = (e) => {
     e.preventDefault();
+    setMessage({msgBody: "Loading...", error:false})
     AuthService.register(user).then(data => {
       
       setMessage(data.message);
@@ -53,6 +56,8 @@ const Register = props => {
     <div className="register-form">
       <form onSubmit={onSubmit}>
         <h3>Enter details</h3>
+        <label htmlFor="email">Email: </label>
+        <input type="email" name="email" onChange={onchange} placeholder="Email" value={user.email} required />
         <label htmlFor="username">Username: </label>
         <input type="text" name="username" onChange={onchange} placeholder="Username" value={user.username} required minLength="3" maxLength="24"/>
         <label htmlFor="password">Password: </label>

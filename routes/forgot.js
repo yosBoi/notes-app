@@ -69,7 +69,7 @@ router.post('/reset', async (req,res) => {
     return res.status(404).json({message: {msgBody: "email not registered", error:true}});
   }
 
-  console.log(user);
+  //console.log(user);
 
   if(user.recoveryCode !== req.body.recoveryCode){
     return res.status(401).json({message: {msgBody: "Wrong recovery code", error:true}});

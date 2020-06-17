@@ -3,9 +3,7 @@ $light-grey: #393e46;
 $blue: #00adb5;
 $white: #eeeeee;
 
-
-
-.login-form form{
+.reset-form form{
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -24,7 +22,6 @@ $white: #eeeeee;
   h3{
     margin-bottom: 30px;
   }
-
   input{
     width: 80%;
     height: 30px;
@@ -78,30 +75,7 @@ $white: #eeeeee;
     &:focus{
       outline: none;
     }
-
   }
-
-}
-
-#forgot-link{
-  font-size: small;
-  margin: auto;
-  margin-top: 30px;
-  text-align: center;
-
-  a{
-    text-decoration: underline;
-  }
-}
-
-.valid-input{
-  //background-color: #99ff99 !important;
-  border: solid 2px #99ff99 !important;
-}
-
-.invalid-input{
-  //background-color: #ff9999 !important;
-  border: solid 2px #ff9999 !important;
 }
 
 @media (max-width: 640px){

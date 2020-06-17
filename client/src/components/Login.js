@@ -3,6 +3,8 @@ import AuthService from '../services/AuthService';
 import Message from './Message';
 import {AuthContext} from '../context/AuthContext';
 
+import {Link} from 'react-router-dom'
+
 import '../styles/css/login.min.css';
 
 const Login = props => {
@@ -26,6 +28,7 @@ const Login = props => {
 
   const onSubmit = (e) => {
     e.preventDefault();
+    setMessage({msgBody: "Loading...", error:false})
     AuthService.login(user).then(data => {
       //console.log(data);
       if(data.isAuthenticated){
@@ -54,6 +57,7 @@ const Login = props => {
         <input type="password" name="password" onChange={onChange} placeholder="Password" required/>
         <button type="submit">Log In</button>
       </form>
+      <p id="forgot-link"><Link to='/forgot'>Forgot password</Link></p>
       {/* this message component only displays if message (in message state) exists */}
       {message ? <Message message = {message}/> : null}
     </div>

@@ -17,12 +17,12 @@ export default {
       }).catch(e => console.log(e));
   },
   register : user =>{
-      console.log(user);
+      //console.log(user);
       return fetch('/api/register',{
           method : "post",
           body : JSON.stringify(user),
           headers : {
-              'Content-Type' : 'application/json'
+            'Content-Type' : 'application/json'
           }
       }).then(res => res.json())
         .then(data => data);
@@ -31,6 +31,26 @@ export default {
       return fetch('/api/logout')
         .then(res => res.json())
         .then(data => data);
+  },
+  forgot : user => {
+    return fetch('/api/forgot', {
+        method: "post",
+        body: JSON.stringify(user),
+        headers: {
+            'Content-Type': "application/json"
+        }
+    }).then(res => res.json())
+    .then(data => data);
+  },
+  reset: user => {
+    return fetch('/api/forgot/reset', {
+        method: "post",
+        body: JSON.stringify(user),
+        headers: {
+            'Content-Type': "application/json"
+        }
+    }).then(res => res.json())
+    .then(data => data);
   },
   //just to check if user has jwt token in cookies or not
   isAuthenticated : ()=>{
