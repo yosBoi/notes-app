@@ -31,7 +31,7 @@ const Forgot = props => {
     <div className="forgot-form">
       <form onSubmit={onSubmit}>
         <h3>Enter your registered email:</h3>
-        <input type="email" name="email" onChange={onChange} placeholder="Email id" required />
+        <input type="email" name="email" onChange={onChange} placeholder="Email id" value={user.email} required/>
         <button type="submit">Submit</button>
       </form>
       <p id="reset-link">Once you have recieved the recovery code on your email, please go to the <Link to="/reset">reset page</Link></p>

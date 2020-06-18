@@ -78,8 +78,18 @@ $white: #eeeeee;
   }
 }
 
+.valid-input{
+  //background-color: #99ff99 !important;
+  border: solid 2px #99ff99 !important;
+}
+
+.invalid-input{
+  //background-color: #ff9999 !important;
+  border: solid 2px #ff9999 !important;
+}
+
 @media (max-width: 640px){
-  .login-form{
+  .reset-form{
     form{
       width:90vw;
       height: 80vh;

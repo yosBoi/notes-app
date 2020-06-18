@@ -12,6 +12,14 @@ const Reset = props => {
 
   const onChange = e => {
     setUser({...user, [e.target.name]: e.target.value});
+    if(e.target.name === "password"){
+      if(e.target.value.length >= 3){
+        e.target.className = "valid-input";
+      }
+      else{
+        e.target.className = "invalid-input";
+      }
+    }
   }
 
   const onSubmit = e => {
@@ -28,11 +36,11 @@ const Reset = props => {
       <form onSubmit={onSubmit}>
         <h3>Reset password</h3>
         <label htmlFor='email'>Email:</label>
-        <input type="email" name="email" onChange={onChange} placeholder="Email id" required />
+        <input type="email" name="email" onChange={onChange} placeholder="Email id" value={user.email} required />
         <label htmlFor='recoveryCode'>Recovery Code:</label>
-        <input type="text" name="recoveryCode" onChange={onChange} placeholder="Recovery Code" required />
+        <input type="text" name="recoveryCode" onChange={onChange} placeholder="Recovery Code" value={user.recoveryCode} required />
         <label htmlFor='password'>New Password:</label>
-        <input type="password" name="password" onChange={onChange} placeholder="New Password" required />
+        <input type="password" name="password" onChange={onChange} placeholder="New Password" value={user.password} required minLength="3"/>
         <button type="submit">Submit</button>
       </form>
       {message ? <Message message = {message}/> : null}
