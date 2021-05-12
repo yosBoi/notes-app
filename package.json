@@ -19,7 +19,7 @@
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.9.12",
     "mongoose-type-email": "^1.0.12",
-    "nodemailer": "^6.4.10",
+    "nodemailer": "^6.4.16",
     "shortid": "^2.2.15"
   },
   "devDependencies": {
